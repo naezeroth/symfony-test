@@ -29,9 +29,14 @@ class Movie
     private $genres;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rating;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $test;
 
     public function __construct()
     {
@@ -97,6 +102,18 @@ class Movie
     public function setRating(string $rating): self
     {
         $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getTest(): ?string
+    {
+        return $this->test;
+    }
+
+    public function setTest(?string $test): self
+    {
+        $this->test = $test;
 
         return $this;
     }
